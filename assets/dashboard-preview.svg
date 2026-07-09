@@ -1,0 +1,34 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="page" x1="0" y1="0" x2="1200" y2="720"><stop stop-color="#030712"/><stop offset="1" stop-color="#111827"/></linearGradient>
+    <linearGradient id="hero" x1="80" y1="60" x2="1120" y2="260"><stop stop-color="#0f172a"/><stop offset="1" stop-color="#2563eb"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#000" flood-opacity="0.35"/></filter>
+  </defs>
+  <rect width="1200" height="720" rx="28" fill="url(#page)"/>
+  <rect x="38" y="38" width="250" height="644" rx="24" fill="#1f2937" stroke="#334155"/>
+  <text x="70" y="92" fill="#f8fafc" font-size="26" font-family="Inter, Arial" font-weight="900">Settings</text>
+  <rect x="70" y="132" width="186" height="42" rx="12" fill="#0f172a" stroke="#475569"/>
+  <text x="86" y="159" fill="#cbd5e1" font-size="15" font-family="Inter, Arial">Delhi</text>
+  <rect x="70" y="205" width="186" height="12" rx="6" fill="#334155"/><rect x="70" y="205" width="122" height="12" rx="6" fill="#3b82f6"/>
+  <rect x="70" y="260" width="186" height="42" rx="12" fill="#2563eb"/>
+  <text x="103" y="287" fill="white" font-size="15" font-family="Inter, Arial" font-weight="700">Run Forecast</text>
+  <rect x="328" y="38" width="834" height="178" rx="28" fill="url(#hero)" stroke="#60a5fa" stroke-opacity="0.4"/>
+  <text x="370" y="94" fill="#bfdbfe" font-size="20" font-family="Inter, Arial" font-weight="800">🌎 AirWatch Global</text>
+  <text x="370" y="146" fill="white" font-size="44" font-family="Inter, Arial" font-weight="900">Live + Predicted AQI Intelligence</text>
+  <text x="372" y="181" fill="#dbeafe" font-size="18" font-family="Inter, Arial">ML forecasting • pollutant analytics • health-risk recommendations</text>
+  <g filter="url(#shadow)">
+    <rect x="328" y="244" width="190" height="110" rx="22" fill="#1f2937" stroke="#334155"/><text x="356" y="284" fill="#94a3b8" font-size="15" font-family="Inter, Arial">Average AQI</text><text x="356" y="326" fill="#f8fafc" font-size="42" font-family="Inter, Arial" font-weight="900">128</text>
+    <rect x="544" y="244" width="190" height="110" rx="22" fill="#1f2937" stroke="#334155"/><text x="572" y="284" fill="#94a3b8" font-size="15" font-family="Inter, Arial">High Risk</text><text x="572" y="326" fill="#ef4444" font-size="42" font-family="Inter, Arial" font-weight="900">2</text>
+    <rect x="760" y="244" width="190" height="110" rx="22" fill="#1f2937" stroke="#334155"/><text x="788" y="284" fill="#94a3b8" font-size="15" font-family="Inter, Arial">Best Model</text><text x="788" y="326" fill="#22d3ee" font-size="30" font-family="Inter, Arial" font-weight="900">LSTM</text>
+    <rect x="976" y="244" width="186" height="110" rx="22" fill="#1f2937" stroke="#334155"/><text x="1004" y="284" fill="#94a3b8" font-size="15" font-family="Inter, Arial">Forecast</text><text x="1004" y="326" fill="#f8fafc" font-size="42" font-family="Inter, Arial" font-weight="900">24h</text>
+  </g>
+  <rect x="328" y="386" width="390" height="250" rx="24" fill="#1f2937" stroke="#f97316" stroke-width="3"/>
+  <text x="360" y="432" fill="#f8fafc" font-size="28" font-family="Inter, Arial" font-weight="900">Delhi</text>
+  <text x="360" y="466" fill="#94a3b8" font-size="16" font-family="Inter, Arial">Current AQI</text><text x="360" y="520" fill="#f97316" font-size="54" font-family="Inter, Arial" font-weight="900">188</text>
+  <text x="540" y="466" fill="#94a3b8" font-size="16" font-family="Inter, Arial">Predicted</text><text x="540" y="520" fill="#ef4444" font-size="54" font-family="Inter, Arial" font-weight="900">204</text>
+  <text x="360" y="575" fill="#cbd5e1" font-size="17" font-family="Inter, Arial">PM2.5 • PM10 • NO₂ • SO₂ • CO • O₃</text>
+  <rect x="748" y="386" width="414" height="250" rx="24" fill="#1f2937" stroke="#334155"/>
+  <text x="780" y="432" fill="#f8fafc" font-size="28" font-family="Inter, Arial" font-weight="900">24-hour AQI Trend</text>
+  <path d="M790 570 C 830 520, 870 548, 910 500 S 986 530, 1028 475 S 1090 460, 1130 430" stroke="#22d3ee" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <line x1="790" y1="592" x2="1130" y2="592" stroke="#475569"/><line x1="790" y1="430" x2="790" y2="592" stroke="#475569"/>
+</svg>

@@ -34,6 +34,7 @@ CITY_READINGS = [
         "o3": 35.1,
         "no2": 16.4,
         "co": 0.54,
+main
         "trend": "Improving",
     },
     {
@@ -49,6 +50,9 @@ CITY_READINGS = [
         "o3": 22.4,
         "no2": 44.3,
         "co": 0.91,
+
+        "so2": 13.8,
+
         "trend": "Rising",
     },
     {
@@ -64,6 +68,10 @@ CITY_READINGS = [
         "o3": 58.4,
         "no2": 51.7,
         "co": 1.18,
+
+        "so2": 18.4,
+
+
         "trend": "Alert",
     },
     {
@@ -79,6 +87,10 @@ CITY_READINGS = [
         "o3": 30.1,
         "no2": 29.5,
         "co": 0.63,
+
+        "so2": 9.6,
+=======
+
         "trend": "Stable",
     },
 ]
@@ -143,6 +155,10 @@ def render_city_card(reading: dict[str, int | float | str]) -> None:
                 <div><span>PM10</span><strong>{reading['pm10']} µg/m³</strong></div>
                 <div><span>O₃</span><strong>{reading['o3']} ppb</strong></div>
                 <div><span>NO₂</span><strong>{reading['no2']} ppb</strong></div>
+
+                <div><span>SO₂</span><strong>{reading['so2']} ppb</strong></div>
+                <div><span>CO</span><strong>{reading['co']} ppm</strong></div>
+
             </div>
             <p class="guidance"><strong>Forecast:</strong> {predicted_label}. {guidance}</p>
         </article>
@@ -228,8 +244,7 @@ st.markdown(
         <span class="badge">🌎 AirWatch Global</span>
         <h1>Live + Predicted AQI, Realtime Alerts & Health Risk</h1>
         <p>
-            A complete Streamlit front end for an air-quality forecasting project: clean data, engineer
-            time-aware features, train classical and LSTM models, and present city-level AQI alerts in one professional dashboard.
+
         </p>
         <div class="badge-row">
             <span class="badge">city_hour.csv ready</span>

@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="AirWatch Global is an AI powered air quality monitoring and forecasting platform for real-time AQI intelligence."
+    />
+    <title>AirWatch Global | AI Powered AQI Intelligence</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      :root {
+        --bg: #070b16;
+        --panel: rgba(15, 23, 42, 0.72);
+        --panel-strong: rgba(15, 23, 42, 0.92);
+        --border: rgba(148, 163, 184, 0.22);
+        --text: #f8fafc;
+        --muted: #94a3b8;
+        --cyan: #22d3ee;
+        --blue: #3b82f6;
+        --green: #22c55e;
+        --amber: #f59e0b;
+        --red: #ef4444;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 20% 10%, rgba(34, 211, 238, 0.28), transparent 28rem),
+          radial-gradient(circle at 85% 0%, rgba(59, 130, 246, 0.28), transparent 24rem),
+          linear-gradient(135deg, #020617 0%, var(--bg) 48%, #111827 100%);
+      }
+
+      a { color: inherit; text-decoration: none; }
+      .page-shell { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(18px);
+        background: rgba(2, 6, 23, 0.72);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-inner {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 0;
+        gap: 18px;
+      }
+      .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; letter-spacing: -0.03em; }
+      .brand-icon {
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-items: center;
+        border-radius: 14px;
+        background: linear-gradient(135deg, var(--cyan), var(--blue));
+        box-shadow: 0 16px 38px rgba(34, 211, 238, 0.25);
+      }
+      .nav-links { display: flex; gap: 18px; color: var(--muted); font-size: 0.92rem; }
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 18px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--cyan), var(--blue));
+        color: white;
+        font-weight: 800;
+        box-shadow: 0 18px 40px rgba(59, 130, 246, 0.28);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        align-items: center;
+        gap: 34px;
+        padding: 72px 0 46px;
+      }
+      .eyebrow {
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+        padding: 8px 12px;
+        color: #bae6fd;
+        border: 1px solid rgba(34, 211, 238, 0.28);
+        border-radius: 999px;
+        background: rgba(8, 47, 73, 0.42);
+        font-weight: 800;
+        font-size: 0.82rem;
+      }
+      h1 {
+        font-size: clamp(3rem, 7vw, 6.4rem);
+        line-height: 0.92;
+        margin: 20px 0;
+        letter-spacing: -0.08em;
+      }
+      .gradient-text {
+        background: linear-gradient(135deg, #f8fafc, #67e8f9 48%, #60a5fa);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+      .hero-copy { color: #cbd5e1; font-size: 1.12rem; line-height: 1.8; max-width: 690px; }
+      .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+      .ghost {
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 12px 18px;
+        color: #dbeafe;
+        background: rgba(15, 23, 42, 0.48);
+      }
+
+      .glass {
+        border: 1px solid var(--border);
+        background: var(--panel);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+        backdrop-filter: blur(20px);
+      }
+      .dashboard-preview {
+        border-radius: 30px;
+        padding: 18px;
+        transform: perspective(1200px) rotateY(-7deg) rotateX(3deg);
+      }
+      .preview-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+      .window-dots { display: flex; gap: 8px; }
+      .dot { width: 11px; height: 11px; border-radius: 999px; background: var(--red); }
+      .dot:nth-child(2) { background: var(--amber); }
+      .dot:nth-child(3) { background: var(--green); }
+      .preview-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .preview-card { border-radius: 20px; padding: 18px; background: rgba(30, 41, 59, 0.78); border: 1px solid rgba(148, 163, 184, 0.16); }
+      .preview-card strong { display: block; font-size: 2.1rem; margin: 6px 0; }
+      .risk-card { background: linear-gradient(135deg, rgba(239, 68, 68, 0.22), rgba(245, 158, 11, 0.15)); }
+
+      section { padding: 58px 0; }
+      .section-heading { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin-bottom: 24px; }
+      .section-heading h2 { font-size: clamp(2rem, 4vw, 3.4rem); margin: 0; letter-spacing: -0.06em; }
+      .section-heading p { color: var(--muted); max-width: 560px; line-height: 1.7; }
+      .card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+      .feature-card, .metric-card, .pipeline-step, .tech-card {
+        border-radius: 24px;
+        padding: 22px;
+        min-height: 160px;
+      }
+      .feature-card h3, .metric-card h3, .tech-card h3 { margin: 0 0 10px; }
+      .feature-card p, .metric-card p, .tech-card p, .pipeline-step p { color: var(--muted); line-height: 1.65; }
+      .metric-value { font-size: 2.6rem; font-weight: 950; letter-spacing: -0.06em; }
+      .pill { display: inline-flex; padding: 7px 10px; border-radius: 999px; background: rgba(34, 211, 238, 0.12); color: #a5f3fc; font-weight: 800; font-size: 0.78rem; }
+      .dashboard-section { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 18px; align-items: stretch; }
+      .search-panel, .chart-panel, .health-panel { border-radius: 28px; padding: 24px; }
+      .search-box { display: flex; gap: 10px; padding: 10px; border-radius: 18px; background: rgba(15, 23, 42, 0.88); border: 1px solid var(--border); margin: 18px 0; }
+      .search-box input { flex: 1; border: 0; outline: 0; background: transparent; color: white; font-size: 1rem; }
+      .search-box button { border: 0; border-radius: 14px; padding: 10px 14px; background: var(--blue); color: white; font-weight: 800; }
+      canvas { width: 100%; max-height: 300px; }
+      .pipeline { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+      .pipeline-step { position: relative; min-height: 150px; }
+      .step-number { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 12px; background: linear-gradient(135deg, var(--cyan), var(--blue)); font-weight: 900; }
+      .footer { color: var(--muted); border-top: 1px solid var(--border); padding: 28px 0; margin-top: 40px; }
+
+      @media (max-width: 980px) {
+        .hero, .dashboard-section { grid-template-columns: 1fr; }
+        .dashboard-preview { transform: none; }
+        .card-grid { grid-template-columns: repeat(2, 1fr); }
+        .pipeline { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (max-width: 640px) {
+        .nav-links { display: none; }
+        .card-grid, .preview-grid, .pipeline { grid-template-columns: 1fr; }
+        .hero { padding-top: 42px; }
+        .section-heading { display: block; }
+        h1 { font-size: 3.2rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav-inner">
+        <a class="brand" href="#top"><span class="brand-icon">🌍</span><span>AirWatch Global</span></a>
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#dashboard">Dashboard</a>
+          <a href="#ml">ML Pipeline</a>
+          <a href="#stack">Stack</a>
+        </div>
+        <a class="cta" href="https://github.com/" aria-label="View project repository">View Project</a>
+      </div>
+    </nav>
+
+    <main id="top" class="page-shell">
+      <section class="hero">
+        <div>
+          <span class="eyebrow">⚡ AI Powered Air Quality Intelligence</span>
+          <h1><span class="gradient-text">AirWatch Global 🌍</span></h1>
+          <p class="hero-copy">
+            A recruiter-ready AI Engineering portfolio project that monitors air quality, analyzes pollutant risk,
+            predicts future AQI with Machine Learning, and recommends healthier decisions through a premium dashboard.
+          </p>
+          <div class="hero-actions">
+            <a class="cta" href="#dashboard">Explore Dashboard</a>
+            <a class="ghost" href="#ml">View ML Architecture</a>
+          </div>
+        </div>
+
+        <aside class="dashboard-preview glass" aria-label="AirWatch Global dashboard preview">
+          <div class="preview-header">
+            <strong>AirWatch Global Dashboard</strong>
+            <div class="window-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          </div>
+          <div class="preview-grid">
+            <div class="preview-card"><span class="pill">Current AQI</span><strong>157</strong><p>Mumbai · Unhealthy</p></div>
+            <div class="preview-card"><span class="pill">Predicted AQI</span><strong>171</strong><p>Next 24 hours</p></div>
+            <div class="preview-card"><span class="pill">Pollutants</span><strong>6</strong><p>PM2.5, PM10, NO₂, SO₂, CO, O₃</p></div>
+            <div class="preview-card risk-card"><span class="pill">Health Risk</span><strong>High</strong><p>Limit outdoor exposure</p></div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="features">
+        <div class="section-heading">
+          <h2>Platform Features</h2>
+          <p>Designed like a professional AI product: real-time data, pollutant analytics, predictive modeling, and health-focused recommendations.</p>
+        </div>
+        <div class="card-grid">
+          <article class="feature-card glass"><h3>✅ Real-time AQI</h3><p>Integrates with environmental APIs to display current city-level air quality.</p></article>
+          <article class="feature-card glass"><h3>🔎 City Search</h3><p>Search and focus on target cities for localized AQI intelligence.</p></article>
+          <article class="feature-card glass"><h3>🧪 Pollutants</h3><p>Tracks PM2.5, PM10, NO₂, SO₂, CO, and O₃ concentration drivers.</p></article>
+          <article class="feature-card glass"><h3>🤖 ML Forecasts</h3><p>Uses Random Forest, ARIMA, and LSTM concepts for AQI prediction.</p></article>
+          <article class="feature-card glass"><h3>🚦 Categories</h3><p>Detects AQI severity classes from Good through Hazardous.</p></article>
+          <article class="feature-card glass"><h3>🫁 Health Risk</h3><p>Maps predicted pollution levels to health risk and exposure guidance.</p></article>
+          <article class="feature-card glass"><h3>🔔 Smart Alerts</h3><p>Highlights unhealthy and hazardous air conditions before they peak.</p></article>
+          <article class="feature-card glass"><h3>📊 Dashboard</h3><p>Modern glassmorphism interface with cards, charts, and trend panels.</p></article>
+        </div>
+      </section>
+
+      <section id="dashboard">
+        <div class="section-heading">
+          <h2>Premium Dashboard Layout</h2>
+          <p>Dashboard cards communicate operational status instantly while charts and recommendations provide deeper intelligence.</p>
+        </div>
+        <div class="dashboard-section">
+          <div class="search-panel glass">
+            <span class="pill">City Search</span>
+            <h3>Find air quality intelligence by city</h3>
+            <div class="search-box"><input value="Delhi, India" aria-label="City search" /><button>Search</button></div>
+            <div class="metric-card glass"><span class="pill">Health Recommendation</span><div class="metric-value">Avoid</div><p>Predicted AQI is unhealthy. Reduce outdoor workouts and use filtered indoor air where possible.</p></div>
+          </div>
+          <div class="chart-panel glass">
+            <span class="pill">AQI Trend Visualization</span>
+            <h3>24-hour predicted air quality trend</h3>
+            <canvas id="aqiChart" aria-label="AQI trend chart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section id="ml">
+        <div class="section-heading">
+          <h2>Machine Learning Pipeline</h2>
+          <p>End-to-end AI workflow from data ingestion to AQI prediction and health risk classification.</p>
+        </div>
+        <div class="pipeline">
+          <div class="pipeline-step glass"><div class="step-number">1</div><h3>Data Collection</h3><p>OpenAQ, AQI APIs, and historical pollution datasets.</p></div>
+          <div class="pipeline-step glass"><div class="step-number">2</div><h3>Preprocessing</h3><p>Clean timestamps, missing values, units, and duplicates.</p></div>
+          <div class="pipeline-step glass"><div class="step-number">3</div><h3>Features</h3><p>Pollutants, weather, lag values, rolling averages, and calendar signals.</p></div>
+          <div class="pipeline-step glass"><div class="step-number">4</div><h3>Training</h3><p>Random Forest, ARIMA, and LSTM forecasting models.</p></div>
+          <div class="pipeline-step glass"><div class="step-number">5</div><h3>Prediction</h3><p>Forecast short-term and long-term AQI values.</p></div>
+          <div class="pipeline-step glass"><div class="step-number">6</div><h3>Risk</h3><p>Classify health risk and generate recommendations.</p></div>
+        </div>
+      </section>
+
+      <section id="stack">
+        <div class="section-heading">
+          <h2>Technology Stack</h2>
+          <p>Portfolio-grade stack across frontend, backend, AI modeling, and deployment.</p>
+        </div>
+        <div class="card-grid">
+          <article class="tech-card glass"><h3>Frontend</h3><p>React, Vite, Tailwind CSS, Chart.js, Streamlit prototype.</p></article>
+          <article class="tech-card glass"><h3>Backend</h3><p>Python, Flask/FastAPI, REST APIs, environment-based API keys.</p></article>
+          <article class="tech-card glass"><h3>AI</h3><p>Scikit-learn, TensorFlow, Pandas, NumPy, ARIMA modeling.</p></article>
+          <article class="tech-card glass"><h3>Deployment</h3><p>GitHub Pages for static portfolio and Streamlit Cloud for Python dashboard.</p></article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="page-shell">Built as a professional AI Engineering portfolio project · AirWatch Global 🌍</div>
+    </footer>
+
+    <script>
+      const ctx = document.getElementById('aqiChart');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '24:00'],
+          datasets: [{
+            label: 'Predicted AQI',
+            data: [122, 136, 171, 188, 176, 154, 140],
+            borderColor: '#22d3ee',
+            backgroundColor: 'rgba(34, 211, 238, 0.18)',
+            fill: true,
+            tension: 0.42,
+            pointRadius: 5,
+            pointBackgroundColor: '#3b82f6'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { labels: { color: '#cbd5e1' } } },
+          scales: {
+            x: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(148, 163, 184, 0.12)' } },
+            y: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(148, 163, 184, 0.12)' } }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
