@@ -1,292 +1,348 @@
 <div align="center">
 
-<img src="assets/airwatch-banner.svg" alt="AirWatch Global AI Powered Air Quality Monitoring and Forecasting Platform banner" width="100%" />
+<img src="assets/airwatch-banner.svg" alt="AirWatch Global Banner" width="100%" />
 
 # 🌍 AirWatch Global
 
 ### AI Powered Air Quality Monitoring & Forecasting Platform
 
-**Real-time AQI intelligence • Machine Learning forecasting • Health risk alerts • Recruiter-ready AI Engineering portfolio project**
+**Real-time AQI Intelligence • Machine Learning Prediction • Health Risk Alerts**
 
-[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-Live_Dashboard-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
-[![Vite](https://img.shields.io/badge/Vite-GitHub_Pages-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![Machine Learning](https://img.shields.io/badge/ML-RF_|_ARIMA_|_LSTM-f59e0b?style=for-the-badge)](#-machine-learning-engine)
-[![License](https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge)](LICENSE)
-
-<a href="#-live-preview">Live Preview</a> •
-<a href="#-features">Features</a> •
-<a href="#-architecture">Architecture</a> •
-<a href="#-quick-start">Quick Start</a> •
-<a href="#-future-enhancements">Roadmap</a>
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-RF%20|%20ARIMA%20|%20LSTM-orange)
+![React](https://img.shields.io/badge/Frontend-React-blue)
+![Streamlit](https://img.shields.io/badge/Dashboard-Streamlit-red)
 
 </div>
 
 ---
 
-## 📸 Live Preview
+# 📌 Overview
 
-> The repository now includes a **GitHub Pages-compatible static portfolio dashboard** and a **Streamlit AI dashboard prototype**.
+AirWatch Global is an AI-powered environmental intelligence platform that monitors air pollution, predicts future AQI levels, and provides health recommendations.
 
-<div align="center">
-  <img src="assets/dashboard-preview.svg" alt="AirWatch Global dashboard preview showing AQI cards, model forecasting, and pollutant analytics" width="100%" />
-</div>
-
-### Open the working pages locally
-
-| Experience | Command | What it shows |
-| --- | --- | --- |
-| **Static portfolio website** | `python -m http.server 4173` then open `http://localhost:4173/index.html` | GitHub Pages-ready landing page with dark theme, glass cards, hero, chart, ML pipeline, and recruiter-focused project story |
-| **Vite frontend preview** | `npm install` then `npm run dev` | Modern static frontend development flow for the portfolio dashboard |
-| **Streamlit dashboard** | `streamlit run streamlit_app.py` | Interactive AQI dashboard prototype with city filters, KPI cards, AQI forecast tab, model comparison, and workflow view |
+The system collects real-time air-quality information using AQI APIs, analyzes pollutant patterns, applies Machine Learning forecasting models, and visualizes results through an interactive dashboard.
 
 ---
 
-## 📌 Overview
+# 🚨 Problem Statement
 
-**AirWatch Global** is a professional AI Engineering project that demonstrates how real-time environmental data can become actionable air-quality intelligence. The platform concept collects AQI data from environmental APIs, analyzes pollutant patterns, predicts future AQI with Machine Learning models, classifies health risk, and displays insights in a polished dashboard.
+Traditional AQI platforms only display current pollution levels.
 
-This project is designed for portfolio review: recruiters can quickly see the product idea, architecture, AI workflow, frontend presentation, and deployment path.
+AirWatch Global improves this by adding:
 
----
-
-## 🚨 Problem Statement
-
-Air pollution impacts daily health decisions, but most AQI tools only show current conditions. They often miss predictive forecasting, pollutant-level interpretation, and actionable recommendations. AirWatch Global solves this by combining:
-
-- real-time AQI monitoring,
-- pollutant analytics,
-- Machine Learning prediction,
-- health risk classification,
-- and smart environmental alerts.
+- Real-time monitoring
+- Future AQI prediction
+- Pollutant analysis
+- AI health recommendations
+- Smart alerts
 
 ---
 
-## ✨ Features
+# ✨ Features
 
-| Feature | Description |
-| --- | --- |
-| ✅ Real-time AQI monitoring | API-ready architecture for live environmental data ingestion |
-| ✅ City-based AQI search | Focus dashboard insights on selected cities |
-| ✅ Pollutant tracking | PM2.5, PM10, NO₂, SO₂, CO, and O₃ monitoring |
-| ✅ ML AQI forecasting | Predict future AQI using pollutant, time, and weather features |
-| ✅ Pollution category detection | Classify AQI into Good, Moderate, Unhealthy, Very Unhealthy, and Hazardous states |
-| ✅ Health risk prediction | Convert AQI severity into user-friendly risk labels |
-| ✅ Smart alerts | Highlight unhealthy predicted conditions before they peak |
-| ✅ Interactive dashboard | Premium UI with cards, charts, controls, and recommendation panels |
+✅ Real-time AQI API Integration
 
----
+✅ City-wise Air Quality Monitoring
 
-## 🖥️ AirWatch Global Dashboard
+✅ PM2.5, PM10, NO₂, SO₂, CO, O₃ Tracking
 
-The dashboard is designed like a premium AI product interface.
+✅ Machine Learning AQI Forecasting
 
-### Dashboard Cards
+✅ Pollution Level Classification
 
-- **Current AQI** — live or latest AQI reading
-- **Predicted AQI** — forecasted AQI for the selected time horizon
-- **Pollutants** — PM2.5, PM10, NO₂, SO₂, CO, O₃ concentration drivers
-- **Health Risk** — recommended action based on AQI category
+✅ Health Risk Detection
 
-### Dashboard Sections
+✅ Interactive Dashboard
 
-- **Hero:** `AirWatch Global 🌍` and `AI Powered Air Quality Intelligence`
-- **Live AQI Cards** for fast city-level status
-- **Prediction Cards** for next-step risk detection
-- **City Search** for location-specific insights
-- **Pollutant Graphs** for explainable AQI drivers
-- **AQI Trend Visualization** for forecast review
-- **Health Recommendation Panel** for user action guidance
+✅ Smart Alert System
+
 
 ---
 
-## 🧠 Machine Learning Engine
+# 🖥️ Dashboard Features
+
+
+## 🌍 AirWatch Global Dashboard
+
+
+### AQI Cards
+
+- Current AQI
+- AI Predicted AQI
+- Pollution Category
+- Health Risk
+
+
+### Visualization
+
+- AQI Trend Graph
+- Pollutant Charts
+- Forecast Analysis
+- City Comparison
+
+
+---
+
+# 🧠 Machine Learning Workflow
+
 
 ```text
 Data Collection
-      ↓
-Preprocessing
-      ↓
+        |
+        ↓
+Data Cleaning
+        |
+        ↓
 Feature Engineering
-      ↓
+        |
+        ↓
 Model Training
-      ↓
+        |
+        ↓
 AQI Prediction
-      ↓
+        |
+        ↓
 Health Risk Classification
 ```
 
-### Models Used / Planned
+---
 
-| Model | Purpose | Why it matters |
-| --- | --- | --- |
-| **Random Forest Regressor** | Pollutant-based AQI prediction | Handles nonlinear relationships between pollutants and AQI |
-| **ARIMA** | Time-series forecasting | Provides statistical trend forecasting baseline |
-| **LSTM Neural Network** | Long-term AQI trend prediction | Learns sequential patterns from historical AQI windows |
+# 🤖 Models Used
 
-### Dataset & API Sources
 
-- **OpenAQ API** — open environmental air-quality measurements
-- **AQI API** — city-level AQI and pollutant readings
-- **Historical pollution datasets** — model training, backtesting, and validation
+| Model | Purpose |
+|-|-|
+| Random Forest Regressor | AQI prediction using pollutant features |
+| ARIMA | Time-series forecasting |
+| LSTM Neural Network | Long-term AQI trend prediction |
+
 
 ---
 
-## 🏗️ Architecture
+# 🌐 Data Sources
 
-```text
-┌─────────────────────────────┐
-│ Environmental Data Sources  │
-│ OpenAQ API / AQI API        │
-└──────────────┬──────────────┘
-               │
-               ▼
-┌─────────────────────────────┐
-│ Python Backend              │
-│ Flask / FastAPI             │
-└──────────────┬──────────────┘
-               │
-               ▼
-┌─────────────────────────────┐
-│ AI Forecasting Layer        │
-│ Random Forest / ARIMA / LSTM│
-└──────────────┬──────────────┘
-               │
-               ▼
-┌─────────────────────────────┐
-│ Dashboard Layer             │
-│ GitHub Pages / Streamlit    │
-└──────────────┬──────────────┘
-               │
-               ▼
-┌─────────────────────────────┐
-│ Users / Recruiters          │
-│ AQI Insights & Alerts       │
-└─────────────────────────────┘
+
+- OpenAQ API
+- AQI API
+- Historical Air Pollution Dataset
+
+
+Parameters:
+
+```
+PM2.5
+PM10
+NO2
+SO2
+CO
+O3
+Temperature
+Humidity
+Wind Speed
 ```
 
 ---
 
-## 🧰 Technology Stack
+# 🏗️ System Architecture
 
-| Layer | Technologies |
-| --- | --- |
-| **Frontend** | React, Vite, Tailwind CSS, Chart.js, HTML/CSS static GitHub Pages UI |
-| **Dashboard Prototype** | Streamlit |
-| **Backend** | Python, Flask/FastAPI |
-| **AI / ML** | Scikit-learn, TensorFlow, Pandas, NumPy |
-| **Forecasting** | Random Forest Regressor, ARIMA, LSTM Neural Network |
-| **Deployment** | GitHub Pages, Streamlit Community Cloud |
-
----
-
-## 📁 Repository Structure
 
 ```text
-.
-├── assets/
-│   ├── airwatch-banner.svg       # README project banner
-│   └── dashboard-preview.svg     # README dashboard preview image
-├── index.html                    # GitHub Pages-compatible landing dashboard
-├── package.json                  # Vite scripts for frontend preview
-├── README.md                     # Interactive portfolio documentation
-├── requirements.txt              # Python dependencies
-└── streamlit_app.py              # Streamlit AQI dashboard prototype
+
+AQI API / Sensor Data
+
+          ↓
+
+Data Processing Engine
+
+          ↓
+
+Machine Learning Models
+
+ Random Forest
+ ARIMA
+ LSTM
+
+          ↓
+
+AQI Prediction System
+
+          ↓
+
+Dashboard + Health Alerts
+
 ```
 
 ---
 
-## ⚡ Quick Start
+# 🛠️ Technology Stack
 
-### 1️⃣ Clone the repository
+
+## Frontend
+
+- React JS
+- Vite
+- HTML
+- CSS
+- JavaScript
+- Chart.js
+
+
+## Backend
+
+- Python
+- Flask / FastAPI
+
+
+## Machine Learning
+
+- Scikit-Learn
+- TensorFlow
+- Pandas
+- NumPy
+
+
+## Deployment
+
+- GitHub Pages
+- Streamlit Cloud
+
+
+---
+
+# 📂 Project Structure
+
+
+```text
+
+AirWatch-Global
+
+├── assets
+│
+├── index.html
+│
+├── src
+│
+├── README.md
+│
+├── requirements.txt
+│
+└── streamlit_app.py
+
+```
+
+---
+
+# ⚡ Installation
+
+
+Clone repository
+
 
 ```bash
-git clone <your-repository-url>
-cd Air_Qality_Index
+git clone https://github.com/Yogesh-77/Air_Qality_Indexx.git
 ```
 
-### 2️⃣ Run the GitHub Pages-compatible static dashboard
 
-```bash
-python -m http.server 4173
-```
+Install frontend dependencies
 
-Open:
-
-```text
-http://localhost:4173/index.html
-```
-
-### 3️⃣ Run the Vite frontend workflow
 
 ```bash
 npm install
+```
+
+
+Run frontend
+
+
+```bash
 npm run dev
 ```
 
-### 4️⃣ Run the Streamlit AI dashboard prototype
+
+Install Python dependencies
+
 
 ```bash
 pip install -r requirements.txt
+```
+
+
+Run Streamlit Dashboard
+
+
+```bash
 streamlit run streamlit_app.py
 ```
 
 ---
 
-## 🔐 Environment Variables
+# 🔑 API Configuration
 
-Create a `.env` file when you connect real AQI APIs:
+
+Create `.env`
+
 
 ```env
-AQI_API_KEY=your_api_key
+AQI_API_KEY=YOUR_API_KEY
 ```
 
----
-
-## 🚀 Deployment
-
-### GitHub Pages
-
-Use `index.html` as the static portfolio page. It is compatible with GitHub Pages because it does not require a Python server.
-
-### Streamlit Community Cloud
-
-Deploy the AI dashboard prototype with:
-
-```text
-streamlit_app.py
-```
 
 ---
 
-## 🗺️ Future Enhancements
+# 📊 AQI Classification
 
-- IoT sensor integration for hyperlocal AQI monitoring
-- Weather API integration for better model features
-- Mobile application for air-quality alerts
-- Global AQI heatmap with geospatial visualization
-- AI chatbot for pollution advice
-- Automated model retraining pipeline
-- FastAPI prediction service
-- Real OpenAQ/AQI API integration with caching
+
+| AQI | Category |
+|-|-|
+| 0-50 | 🟢 Good |
+| 51-100 | 🟡 Moderate |
+| 101-150 | 🟠 Unhealthy Sensitive |
+| 151-200 | 🔴 Unhealthy |
+| 200+ | 🚨 Hazardous |
+
 
 ---
 
-## 💼 Why This Project Stands Out
+# 🚀 Future Enhancements
 
-AirWatch Global demonstrates end-to-end AI Engineering skills:
 
-- product thinking,
-- API integration planning,
-- data preprocessing workflow,
-- Machine Learning forecasting,
-- time-series modeling,
-- dashboard UI design,
-- deployment awareness,
-- and recruiter-friendly documentation.
+- IoT Sensor Integration
+- Weather API Connection
+- Global AQI Heatmap
+- Mobile Application
+- AI Chatbot for Pollution Advice
+- Automated Model Training Pipeline
+
+
+---
+
+# 💡 Project Highlights
+
+
+This project demonstrates:
+
+✔ API Integration
+
+✔ Data Engineering
+
+✔ Machine Learning
+
+✔ Time-Series Forecasting
+
+✔ AI Dashboard Development
+
+✔ Full Stack Deployment
+
+
+---
 
 <div align="center">
 
-### ⭐ If you like this project, star the repository and use it as a reference for AI Engineering portfolio work.
+## 🌍 AirWatch Global
+
+### Building smarter environmental intelligence using AI
+
+⭐ Star this repository if you like this project
 
 </div>
