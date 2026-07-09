@@ -1,0 +1,14 @@
+{
+  "name": "airwatch-global-aqi-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GitHub Pages-compatible portfolio dashboard for AirWatch Global AQI intelligence.",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.11"
+  }
+}
